@@ -19,15 +19,15 @@ This repository is based on PyTorch 1.7.1.
 ### Usage
 
 1. Clone the repository:
-
    ```shell
    git clone https://github.com/ryandok/JPA.git
    cd JPA
    ```
 2. Preprocess data including `CropZeroZone, Resample, Normalization` on `C1, C0, BreastPred` of the input.
+Reference: [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
 
-3. Data folder structure:
-
+   
+3. Internal structure of `data` folders:
     ```text
     ${data}
        [RawData]
@@ -65,14 +65,12 @@ This repository is based on PyTorch 1.7.1.
     ```
    
 4. Train the model:
- 
    ```shell
    cd code
    python train_JPAnet_3channels_C1&C0&Breast.py --gpu 0 --data_root_path YOUR_PROCESSED_DATA --img1_prefix=DCE-C1 --img2_prefix=DCE-C0 --img3_prefix=BreastPred --label_prefix=TumorMask
    ```
 
 5. Test the model:
-   
    ```text
    modified 
    'utils.image_processing_breastSeg.ImageProcessingBreastSeg' and
