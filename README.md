@@ -79,6 +79,7 @@ Reference: [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
     ```
    
     ```shell
+   cd code
    python test_TumorSeg_OriginRes_onBreastPred.py --gpu 0 --data_root_path YOUR_RAW_DATA --img1_prefix=DCE-C1 --img2_prefix=DCE-C0  --label_prefix=TumorMask --backbone=JPAnet_C1&C0&Breast --exp_name=YOUR_EXP_NAME
     ```
    
