@@ -24,7 +24,7 @@ This repository is based on PyTorch 1.7.1.
    git clone https://github.com/ryandok/JPA.git
    cd JPA
    ```
-2. Preprocess data including `CropZeroZone, Resample, Normalization`.
+2. Preprocess data including `CropZeroZone, Resample, Normalization` on `C1, C0, BreastPred` of the input.
    
 3. Train the model:
  
@@ -39,12 +39,15 @@ This repository is based on PyTorch 1.7.1.
 
 If JPA is useful for your research, please consider citing:
 
-    TODO: add BibTex
+    @article{huang2023joint,
+        title={Joint-phase attention network for breast cancer segmentation in DCE-MRI},
+        author={Huang, Rian and Xu, Zeyan and Xie, Yu and Wu, Hong and Li, Zixian and Cui, Yanfen and Huo, Yingwen and Han, Chu and Yang, Xiaotang and Liu, Zaiyi and others},
+        journal={Expert Systems with Applications},
+        pages={119962},
+        year={2023},
+        publisher={Elsevier}}
 
 
 
-### Note for data
-
-TODO
 
 
