@@ -25,14 +25,65 @@ This repository is based on PyTorch 1.7.1.
    cd JPA
    ```
 2. Preprocess data including `CropZeroZone, Resample, Normalization` on `C1, C0, BreastPred` of the input.
+
+3. Data folder structure:
+
+    ```text
+    ${data}
+       [RawData]
+           [DCE-C0]
+               - DCE-C0_0000000.nii.gz
+               - DCE-C0_0000001.nii.gz
+               ...
+           [DCE-C1]
+               - DCE-C1_0000000.nii.gz
+               - DCE-C1_0000001.nii.gz
+               ...
+           [TumorMask]
+               - TumorMask_0000000.nii.gz
+               - TumorMask_0000001.nii.gz
+               ...
+       
+       [Processed]
+           [DCE-C0]
+               - DCE-C0_0000000.nii.gz
+               - DCE-C0_0000001.nii.gz
+               ...
+           [DCE-C1]
+               - DCE-C1_0000000.nii.gz
+               - DCE-C1_0000001.nii.gz
+               ...
+           [BreastPred]
+               - BreastPred_0000000.nii.gz
+               - BreastPred_0000001.nii.gz
+               ...
+           [TumorMask]
+               - TumorMask_0000000.nii.gz
+               - TumorMask_0000001.nii.gz
+               ...
+           
+    ```
    
-3. Train the model:
+4. Train the model:
  
    ```shell
    cd code
-   python train_JPAnet_3channels_C1&C0&Breast.py --gpu 0 --data_root_path YOUR_PROCESSED_DATA
+   python train_JPAnet_3channels_C1&C0&Breast.py --gpu 0 --data_root_path YOUR_PROCESSED_DATA --img1_prefix=DCE-C1 --img2_prefix=DCE-C0 --img3_prefix=BreastPred --label_prefix=TumorMask
    ```
 
+5. Test the model:
+   
+   ```text
+   modified 
+   'utils.image_processing_breastSeg.ImageProcessingBreastSeg' and
+   'utils.image_processing_tumorSeg.ImageProcessingTumorSegOriginRegion'
+   according to your preprocess methods.
+    ```
+   
+    ```shell
+   python test_TumorSeg_OriginRes_onBreastPred.py --gpu 0 --data_root_path YOUR_RAW_DATA --img1_prefix=DCE-C1 --img2_prefix=DCE-C0  --label_prefix=TumorMask --backbone=JPAnet_C1&C0&Breast --exp_name=YOUR_EXP_NAME
+    ```
+   
 
 
 ### Citation
