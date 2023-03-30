@@ -4,7 +4,7 @@ by [Rian Huang](https://github.com/ryandok), Zeyan Xu, Yu Xie, Hong Wu, Zixian L
 
 ### Introduction
 
-This repository is for our ESWA 2023 paper '[Joint-phase Attention Network for Breast Cancer Segmentation in DCE-MRI](https://arxiv.org/)'. (Accepted)
+This repository is for our ESWA 2023 paper '[Joint-phase Attention Network for Breast Cancer Segmentation in DCE-MRI](https://www.sciencedirect.com/science/article/pii/S0957417423004645)'. 
 
 ![Overview](figure/Overview.png)
 
