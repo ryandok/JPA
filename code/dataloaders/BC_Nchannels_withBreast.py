@@ -19,10 +19,10 @@ class BC(Dataset):
 
     def __getitem__(self, index):
         volume_path_list = [os.path.join(self.data_root_path, img_prefix,
-                                         img_prefix + '_' + self.case_list[index]) for img_prefix in
+                                         img_prefix + '_' + self.case_list[index] + '.nii.gz') for img_prefix in
                             self.img_prefix_list]
         label_path = os.path.join(self.data_root_path, self.label_prefix,
-                                  self.label_prefix + '_' + self.case_list[index])
+                                  self.label_prefix + '_' + self.case_list[index] + '.nii.gz')
 
         volume_list = [nib.load(volume_path).get_fdata() for volume_path in volume_path_list]
         volume_list[-1] = 0.5 + (volume_list[-1] - 0.5) * 0.8
